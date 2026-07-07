@@ -1,0 +1,206 @@
+{
+  "appName": "Word Order Rally",
+  "schemaVersion": 2,
+  "frameworks": {
+    "cefr": {
+      "label": "CEFR",
+      "short": "Can-do levels",
+      "defaultLevel": "A1",
+      "summary": "A practical CEFR-style route into word-order practice.",
+      "levels": [
+        {
+          "id": "A1",
+          "label": "A1",
+          "summary": "Concrete classroom language, be, have, can, and present simple.",
+          "focus": "Concrete classroom language, be, have, can, and present simple.",
+          "hints": [
+            "Find the subject first.",
+            "Look for be, have, or can.",
+            "Check the full stop."
+          ]
+        },
+        {
+          "id": "A2",
+          "label": "A2",
+          "summary": "Past simple, going to, reasons, comparisons, and classroom routines.",
+          "focus": "Past simple, going to, reasons, comparisons, and classroom routines.",
+          "hints": [
+            "Watch the time word.",
+            "Find the reason clause.",
+            "Check the verb ending."
+          ]
+        },
+        {
+          "id": "B1",
+          "label": "B1",
+          "summary": "Conditionals, present perfect, modals, relative clauses, and clear opinions.",
+          "focus": "Conditionals, present perfect, modals, relative clauses, and clear opinions.",
+          "hints": [
+            "Find the condition.",
+            "Track the auxiliary verb.",
+            "Look for the relative clause."
+          ]
+        },
+        {
+          "id": "B2",
+          "label": "B2",
+          "summary": "Passive voice, reported speech, contrast, purpose, and clause control.",
+          "focus": "Passive voice, reported speech, contrast, purpose, and clause control.",
+          "hints": [
+            "Notice the passive structure.",
+            "Track the contrast word.",
+            "Find the reporting verb."
+          ]
+        },
+        {
+          "id": "C1",
+          "label": "C1",
+          "summary": "Inversion, hedging, nominalisation, cleft sentences, and academic phrasing.",
+          "focus": "Inversion, hedging, nominalisation, cleft sentences, and academic phrasing.",
+          "hints": [
+            "Look for inversion.",
+            "Find the main claim.",
+            "Track concession and emphasis."
+          ]
+        }
+      ]
+    },
+    "myp": {
+      "label": "MYP",
+      "short": "Language acquisition",
+      "defaultLevel": "phase-1-2",
+      "summary": "MYP-flavoured sentence sets using inquiry, global contexts, concepts, and classroom reflection.",
+      "levels": [
+        {
+          "id": "phase-1-2",
+          "label": "Phase 1-2",
+          "summary": "Identity, community, classroom objects, simple description, and early inquiry language.",
+          "focus": "Identity, community, classroom objects, simple description, and early inquiry language.",
+          "hints": [
+            "Find who or what the sentence is about.",
+            "Look for the action word.",
+            "Check the classroom noun."
+          ]
+        },
+        {
+          "id": "phase-2-3",
+          "label": "Phase 2-3",
+          "summary": "Past events, simple reasons, comparisons, communities, and global contexts.",
+          "focus": "Past events, simple reasons, comparisons, communities, and global contexts.",
+          "hints": [
+            "Watch the time marker.",
+            "Find the because clause.",
+            "Compare the two ideas."
+          ]
+        },
+        {
+          "id": "phase-3-4",
+          "label": "Phase 3-4",
+          "summary": "Perspectives, evidence, relative clauses, action, and inquiry reflection.",
+          "focus": "Perspectives, evidence, relative clauses, action, and inquiry reflection.",
+          "hints": [
+            "Find the inquiry condition.",
+            "Track the evidence word.",
+            "Look for the relative clause."
+          ]
+        },
+        {
+          "id": "phase-4-5",
+          "label": "Phase 4-5",
+          "summary": "Key concepts, related concepts, reported ideas, passive voice, and purpose.",
+          "focus": "Key concepts, related concepts, reported ideas, passive voice, and purpose.",
+          "hints": [
+            "Notice the concept phrase.",
+            "Find the reported idea.",
+            "Track the purpose clause."
+          ]
+        },
+        {
+          "id": "phase-5-6",
+          "label": "Phase 5-6",
+          "summary": "Nuanced conceptual language, global contexts, hedging, synthesis, and academic claims.",
+          "focus": "Nuanced conceptual language, global contexts, hedging, synthesis, and academic claims.",
+          "hints": [
+            "Find the conceptual noun phrase.",
+            "Look for hedging.",
+            "Track the relationship between ideas."
+          ]
+        }
+      ]
+    },
+    "tefl": {
+      "label": "TEFL",
+      "short": "General English",
+      "defaultLevel": "beginner",
+      "summary": "General English classroom bands for warmer, filler, revision, and fluency lessons.",
+      "levels": [
+        {
+          "id": "beginner",
+          "label": "Beginner",
+          "summary": "Everyday nouns, routines, be, have, can, and simple present.",
+          "focus": "Everyday nouns, routines, be, have, can, and simple present.",
+          "hints": [
+            "Start with the person.",
+            "Look for the main verb.",
+            "Check the place word."
+          ]
+        },
+        {
+          "id": "elementary",
+          "label": "Elementary",
+          "summary": "Past events, future plans, reasons, quantities, and comparisons.",
+          "focus": "Past events, future plans, reasons, quantities, and comparisons.",
+          "hints": [
+            "Watch yesterday, tomorrow, and because.",
+            "Check the verb ending.",
+            "Find the second idea."
+          ]
+        },
+        {
+          "id": "pre-intermediate",
+          "label": "Pre-Intermediate",
+          "summary": "Advice, experiences, preferences, reasons, and short clauses.",
+          "focus": "Advice, experiences, preferences, reasons, and short clauses.",
+          "hints": [
+            "Find the modal verb.",
+            "Look for since or if.",
+            "Track the reason."
+          ]
+        },
+        {
+          "id": "intermediate",
+          "label": "Intermediate",
+          "summary": "Connected clauses, conditions, relative clauses, purpose, and reported ideas.",
+          "focus": "Connected clauses, conditions, relative clauses, purpose, and reported ideas.",
+          "hints": [
+            "Find the connector.",
+            "Track the subject of each clause.",
+            "Check the verb group."
+          ]
+        },
+        {
+          "id": "upper-intermediate",
+          "label": "Upper-Intermediate",
+          "summary": "Passive voice, contrast, reported speech, and more complex time relationships.",
+          "focus": "Passive voice, contrast, reported speech, and more complex time relationships.",
+          "hints": [
+            "Look for the passive.",
+            "Track contrast and purpose.",
+            "Find the reporting verb."
+          ]
+        },
+        {
+          "id": "advanced",
+          "label": "Advanced",
+          "summary": "Inversion, hedging, emphasis, nominalisation, and academic argument.",
+          "focus": "Inversion, hedging, emphasis, nominalisation, and academic argument.",
+          "hints": [
+            "Look for inversion.",
+            "Find the main claim.",
+            "Track the formal phrase."
+          ]
+        }
+      ]
+    }
+  }
+}

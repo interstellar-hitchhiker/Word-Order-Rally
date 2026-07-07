@@ -1,0 +1,182 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#0f766e" />
+  <meta name="description" content="A classroom word-order game with class display and solo practice modes." />
+  <title>Word Order Rally</title>
+  <link rel="manifest" href="manifest.webmanifest" />
+  <link rel="icon" href="assets/icons/icon.svg" type="image/svg+xml" />
+  <link rel="stylesheet" href="assets/css/styles.css" />
+</head>
+<body>
+  <div class="app-shell">
+    <header class="topbar">
+      <div class="brand" role="banner">
+        <div class="brand-mark" aria-hidden="true">WO</div>
+        <div>
+          <h1>Word Order Rally</h1>
+          <p>Scrambled sentence rounds for class display, pair work, and solo practice.</p>
+        </div>
+      </div>
+      <button class="pill sound-pill" id="soundPill" type="button" aria-pressed="true">Sound on</button>
+    </header>
+
+    <main>
+      <section id="setupScreen" class="screen active">
+        <div class="setup-layout">
+          <section class="panel setup-main" aria-labelledby="setupTitle">
+            <p class="eyebrow">Teacher setup</p>
+            <h2 id="setupTitle">Choose the play flow first.</h2>
+
+            <div class="mode-grid" id="modeGrid" role="group" aria-label="Play mode">
+              <button class="mode-card active" type="button" data-mode="display">
+                <strong>Class Display</strong>
+                <span>Show the scramble, count down, then reveal the answer automatically.</span>
+              </button>
+              <button class="mode-card" type="button" data-mode="solo">
+                <strong>Solo Practice</strong>
+                <span>Students tap words, check their answer, and see red/green position feedback.</span>
+              </button>
+            </div>
+
+            <div class="field-block">
+              <div class="field-head">
+                <label>Sentence family</label>
+                <span id="frameworkHelp">CEFR, MYP, TEFL, or your own local teacher bank.</span>
+              </div>
+              <div class="framework-list" id="frameworkList"></div>
+            </div>
+
+            <div class="field-block">
+              <div class="field-head">
+                <label>Level or phase</label>
+                <span id="levelHelp">Pick the route that fits today's class.</span>
+              </div>
+              <div class="level-list" id="levelList"></div>
+            </div>
+
+            <div class="selection-strip">
+              <div>
+                <strong id="selectionTitle">Class Display - CEFR A1</strong>
+                <span id="selectionDetails">Short concrete sentences for basic classroom language.</span>
+              </div>
+              <button class="btn primary" id="startRoundBtn" type="button">Start rally</button>
+            </div>
+          </section>
+
+          <aside class="panel setup-side" aria-label="Teacher tools">
+            <section class="side-section">
+              <h3>Round options</h3>
+              <div class="timer-tools">
+                <button class="btn small" id="timeDownBtn" type="button">-</button>
+                <div class="time-display"><span id="timeSettingLabel">25 seconds</span></div>
+                <button class="btn small" id="timeUpBtn" type="button">+</button>
+              </div>
+              <input id="timeSlider" type="range" min="10" max="90" step="5" value="25" aria-label="Timer seconds" />
+              <label class="toggle-row"><span>Lowercase scramble</span><input id="lowercaseToggle" type="checkbox" checked /></label>
+              <label class="toggle-row"><span>Auto-start next round</span><input id="autoStartToggle" type="checkbox" /></label>
+              <label class="toggle-row"><span>Sound effects</span><input id="soundToggle" type="checkbox" checked /></label>
+            </section>
+
+            <section class="side-section">
+              <h3>Teacher bank</h3>
+              <p class="mini-copy">Saved locally in this browser. Import/export moves a bank between devices.</p>
+              <label class="field-label" for="customSentence">Sentence</label>
+              <textarea id="customSentence" spellcheck="true">The inquiry question helped our group explain the evidence clearly.</textarea>
+              <label class="field-label" for="customGrammar">Language focus</label>
+              <input id="customGrammar" type="text" value="Past simple with purpose" />
+              <label class="field-label" for="customNote">Teacher note</label>
+              <input id="customNote" type="text" value="Ask students which words show the purpose of the action." />
+              <div class="utility-actions">
+                <button class="btn small primary" id="playCustomBtn" type="button">Play this</button>
+                <button class="btn small" id="saveCustomBtn" type="button">Save</button>
+              </div>
+              <div class="utility-actions">
+                <button class="btn small" id="exportCustomBtn" type="button">Export JSON</button>
+                <label class="btn small file-input-label">Import JSON<input id="importCustomInput" type="file" accept="application/json,.json" /></label>
+              </div>
+              <div class="saved-list" id="savedList"></div>
+            </section>
+          </aside>
+        </div>
+      </section>
+
+      <section id="playScreen" class="screen">
+        <button class="display-exit" id="exitDisplayBtn" type="button" hidden title="Exit class display">Exit</button>
+        <div class="play-shell">
+          <div class="play-toolbar">
+            <button class="btn small" id="backSetupBtn" type="button">Setup</button>
+            <div class="round-labels">
+              <span class="pill" id="modePill">Class Display</span>
+              <span class="pill pale" id="routePill">CEFR A1</span>
+            </div>
+          </div>
+
+          <section class="play-stage" aria-labelledby="roundTitle">
+            <div class="stage-head">
+              <div>
+                <p class="eyebrow" id="roundMeta">Round 1</p>
+                <h2 id="roundTitle">Rebuild the sentence.</h2>
+                <p id="roundInstruction">Teams write the sentence, then compare with the reveal.</p>
+              </div>
+              <div class="timer-ring" id="timerRing" aria-live="polite">
+                <span class="timer-number" id="timerNumber">25</span>
+                <span class="timer-label" id="timerLabel">seconds</span>
+              </div>
+            </div>
+
+            <div class="scramble-panel">
+              <div class="prompt-row">
+                <span id="promptHint">Find the subject first.</span>
+                <span id="wordCount">0 words</span>
+              </div>
+              <div class="chips" id="scrambledChips" aria-label="Scrambled words"></div>
+
+              <div class="answer-tray" id="answerTray">
+                <div class="tray-title"><span>Your answer</span><span id="trayCount">0 words</span></div>
+                <div class="answer-line" id="answerLine"><span class="empty-text">Tap words above to build the sentence here.</span></div>
+              </div>
+
+              <div class="control-row">
+                <button class="btn primary" id="startTimerBtn" type="button">Start timer</button>
+                <button class="btn" id="pauseTimerBtn" type="button">Pause</button>
+                <button class="btn good solo-only" id="checkAnswerBtn" type="button">Check answer</button>
+                <button class="btn warn" id="revealBtn" type="button">Reveal now</button>
+                <button class="btn solo-only" id="clearBuiltBtn" type="button">Clear</button>
+                <button class="btn primary" id="nextBtn" type="button">Next sentence</button>
+              </div>
+
+              <div class="feedback-summary" id="feedbackSummary" role="status" aria-live="polite"></div>
+
+              <div class="reveal-box" id="revealBox">
+                <div class="answer-correct" id="correctAnswer"></div>
+                <div class="grammar-grid">
+                  <div><b>Language focus</b><span id="grammarFocus"></span></div>
+                  <div><b>Teacher note</b><span id="teacherNote"></span></div>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <section class="stats-row" aria-label="Round stats">
+            <div class="stat"><b id="roundStat">1</b><span>round</span></div>
+            <div class="stat solo-only"><b id="correctStat">0</b><span>checks won</span></div>
+            <div class="stat"><b id="revealStat">0</b><span>reveals</span></div>
+            <div class="stat solo-only"><b id="streakStat">0</b><span>streak</span></div>
+          </section>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <script src="assets/js/storage.js"></script>
+  <script src="assets/js/sound.js"></script>
+  <script src="assets/js/word-engine.js"></script>
+  <script src="assets/js/app.js"></script>
+  <script src="assets/js/pwa-register.js"></script>
+</body>
+</html>

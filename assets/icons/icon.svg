@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-label="Word Order Rally icon">
+  <rect width="512" height="512" rx="88" fill="#0f766e"/>
+  <rect x="54" y="74" width="404" height="86" rx="18" fill="#ffffff"/>
+  <rect x="54" y="213" width="278" height="86" rx="18" fill="#d8f4ef"/>
+  <rect x="54" y="352" width="352" height="86" rx="18" fill="#ffffff"/>
+  <text x="256" y="132" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="54" font-weight="900" fill="#0f172a">WORD</text>
+  <text x="193" y="271" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="54" font-weight="900" fill="#0f172a">ORDER</text>
+  <text x="230" y="410" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="54" font-weight="900" fill="#0f172a">RALLY</text>
+</svg>

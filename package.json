@@ -1,0 +1,13 @@
+{
+  "name": "word-order-rally",
+  "version": "1.0.0",
+  "private": true,
+  "description": "A classroom word-order game with class display and solo practice modes.",
+  "scripts": {
+    "build:data": "node tools/build-sentence-bank.mjs",
+    "serve": "node tools/serve-local.mjs",
+    "check:js": "node --check assets/js/storage.js && node --check assets/js/sound.js && node --check assets/js/word-engine.js && node --check assets/js/app.js && node --check assets/js/pwa-register.js && node --check service-worker.js && node --check tools/build-sentence-bank.mjs && node --check tools/serve-local.mjs && node --check tools/validate-sentences.mjs",
+    "validate:sentences": "node tools/validate-sentences.mjs"
+  },
+  "devDependencies": {}
+}
